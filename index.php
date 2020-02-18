@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -75,29 +75,33 @@
     <script src="data/cache/jquery.js"></script>
     <script src="data/cache/slideshow.js"></script>
     <script>
-        SlideShow(5000, "#slideContainer", "#slidesImgs", "#slideBar");
-        SlideShow(5000, "#slideContainer1", "#slidesImgs1", "#slideBar1");
-        SlideShow(5000, "#slideContainer2", "#slidesImgs2", "#slideBar2");
-        $(function () {
-            $(".user-infor").hover(
-                function () {
-                    $(this).children("ul").show();
-                }, function () {
-                    $(this).children("ul").hide();
-                });
-            $(".hot-site li").each(function () {
-                var $this = $(this);
-                var $siteDate = $this.find(".site-date")
-                var time = $siteDate.html();
-                time = time.substring(2);
-                $siteDate.html(time);
+    SlideShow(5000, "#slideContainer", "#slidesImgs", "#slideBar");
+    SlideShow(5000, "#slideContainer1", "#slidesImgs1", "#slideBar1");
+    SlideShow(5000, "#slideContainer2", "#slidesImgs2", "#slideBar2");
+    $(function() {
+        $(".user-infor").hover(
+            function() {
+                $(this).children("ul").show();
+            },
+            function() {
+                $(this).children("ul").hide();
             });
-            $(".clickAD").bind("click", function () {
-                var identifier = $(this).attr('name');
-                var linkUrl = $(this).attr('href');
-                $.post('/', { identifier: identifier, visitUrl: linkUrl });
+        $(".hot-site li").each(function() {
+            var $this = $(this);
+            var $siteDate = $this.find(".site-date")
+            var time = $siteDate.html();
+            time = time.substring(2);
+            $siteDate.html(time);
+        });
+        $(".clickAD").bind("click", function() {
+            var identifier = $(this).attr('name');
+            var linkUrl = $(this).attr('href');
+            $.post('/', {
+                identifier: identifier,
+                visitUrl: linkUrl
             });
-        })
+        });
+    })
     </script>
 
 
